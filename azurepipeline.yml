@@ -28,7 +28,7 @@ steps:
 
 
 
-- script: |
-      # Execute the npm publish command
-      npm publish
-      displayName: 'Publish to Azure Artifacts'
+- task: npmAuthenticate@0
+  inputs:
+    workingFile: .npmrc                ## Path to the npmrc file
+    customEndpoint: #Optional          ## Comma-separated list of npm service connection names for registries from external organizations. For registries in your org, leave this blank
