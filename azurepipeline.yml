@@ -32,3 +32,8 @@ steps:
   inputs:
     workingFile: .npmrc                ## Path to the npmrc file
     customEndpoint: #Optional          ## Comma-separated list of npm service connection names for registries from external organizations. For registries in your org, leave this blank
+
+
+- script: |
+    npm publish --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
+  displayName: 'npm publish to Azure DevOps feed'
