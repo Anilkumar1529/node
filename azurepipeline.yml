@@ -33,7 +33,7 @@ steps:
     publishLocation: 'Container'
   displayName: 'Publish Artifact'
 
-- script: |
-      # Execute the npm publish command
-      npm publish --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
-      displayName: 'Publish to Azure Artifacts'
+# - script: |
+#       # Execute the npm publish command
+#       npm publish --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
+#       displayName: 'Publish to Azure Artifacts'
