@@ -1,0 +1,20 @@
+{
+  "name": "@bs/my-node-app",
+  "version": "1.0.0",
+  "description": "My component library",
+  "license": "see license in license section",
+  "repository": {
+    "type": "git",
+    "url": "https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Running build process...\""
+  },
+  "author": "Your Name",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

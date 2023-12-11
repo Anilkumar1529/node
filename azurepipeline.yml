@@ -1,0 +1,39 @@
+# Node.js with Azure DevOps pipeline
+
+trigger: none
+
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/my-node-app.zip'
+    replaceExistingArchive: true
+  displayName: 'Archive files'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/my-node-app.zip'
+    artifactName: 'node-app'
+    publishLocation: 'Container'
+  displayName: 'Publish Artifact'
+
+- script: |
+      # Execute the npm publish command
+      npm publish --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
+      displayName: 'Publish to Azure Artifacts'
