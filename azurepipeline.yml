@@ -37,6 +37,6 @@ steps:
     customEndpoint: ''  # Remove the comment and specify npm service connection names if needed
 
 - script: |
-    cd $$(Build.ArtifactStagingDirectory)/my-node-app
+    cd $(Build.ArtifactStagingDirectory)/my-node-app
     npm publish $(Build.ArtifactStagingDirectory) --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
   displayName: 'npm publish to Azure DevOps feed'
