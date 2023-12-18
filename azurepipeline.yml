@@ -38,5 +38,6 @@ steps:
 
 - script: |
     cd $(Build.ArtifactStagingDirectory)/my-node-app
+    ls
     npm publish $(Build.ArtifactStagingDirectory) --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
   displayName: 'npm publish to Azure DevOps feed'
