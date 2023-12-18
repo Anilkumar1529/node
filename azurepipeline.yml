@@ -22,17 +22,11 @@ steps:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/my-node-app.zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
   displayName: 'Archive files'
 
-- script: |
-    npm version patch -m "Bump version to %s [skip ci]"
-    git config --global user.email "Anilkumar1529@gmail.com"  # Replace with your email
-    git config --global user.name "Anilkumar1529"         # Replace with your name
-    git add package.json
-    git commit -m "Bump package version [skip ci]"
-  displayName: 'Increment Version and Commit'
+
 
 - task: npmAuthenticate@0
   inputs:
