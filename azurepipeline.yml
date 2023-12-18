@@ -33,7 +33,13 @@ steps:
     workingFile: .npmrc                ## Path to the npmrc file
     customEndpoint: #Optional          ## Comma-separated list of npm service connection names for registries from external organizations. For registries in your org, leave this blank
 
+- script: |
+    # Increment the patch version number automatically using npm version patch
+    npm version patch -m "Bump version to %s [skip ci]"
+  displayName: 'Increment Version'
 
 - script: |
-    npm publish --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
+    # Publish the updated package to Azure DevOps
+    npm publish $(Build.ArtifactStagingDirectory)/my-node-app.zip --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
   displayName: 'npm publish to Azure DevOps feed'
+
