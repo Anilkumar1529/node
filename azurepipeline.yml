@@ -36,6 +36,6 @@ steps:
 
 - script: |
     # Publish the updated package to Azure DevOps
-    npm publish $(Build.ArtifactStagingDirectory)/my-node-app.zip --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
+    npm publish --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
   displayName: 'npm publish to Azure DevOps feed'
 
