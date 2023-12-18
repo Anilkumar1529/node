@@ -1,5 +1,5 @@
 {
-  "name": "@bs/my-node-app",
+  "name": "my-node-app",
   "version": "1.0.0",
   "description": "My component library",
   "license": "see license in license section",
