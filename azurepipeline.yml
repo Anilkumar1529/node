@@ -22,12 +22,13 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/my-node-app-$(Build.BuildId).zip'  # Include a specific name for your app
     replaceExistingArchive: true
   displayName: 'Archive files'
+  
 
-- task: npmAuthenticate@0
-  inputs:
-    workingFile: '.npmrc'  # Update to the correct path of your .npmrc file
-    customEndpoint: ''  # Remove the comment and specify npm service connection names if needed
+# - task: npmAuthenticate@0
+#   inputs:
+#     workingFile: '.npmrc'  # Update to the correct path of your .npmrc file
+#     customEndpoint: ''  # Remove the comment and specify npm service connection names if needed
 
-- script: |
-    npm publish --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
-  displayName: 'npm publish to Azure DevOps feed'
+# - script: |
+#     npm publish --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
+#   displayName: 'npm publish to Azure DevOps feed'
