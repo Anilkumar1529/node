@@ -26,13 +26,13 @@ steps:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'  # Adjust this path if needed
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/my-node-app-$(Build.BuildId).zip'  # Include a specific name for your app
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'  # Include a specific name for your app
     replaceExistingArchive: true
   displayName: 'Archive files'
 
 - script: |
   
-    npm publish $(Build.ArtifactStagingDirectory)/my-node-app-$(Build.BuildId).zip --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
+    npm publish $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
   displayName: 'npm publish to Azure DevOps feed'
   
 
