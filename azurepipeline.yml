@@ -31,8 +31,8 @@ steps:
   displayName: 'Archive files'
 
 - script: |
-   cd $(Build.ArtifactStagingDirectory)/extracted  # Navigate to the extracted folder
-   npm publish --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/
+   
+   npm publish --registry=https://pkgs.dev.azure.com/CloudBuildersTech/KCOverseas/_packaging/test/npm/registry/ --force
   displayName: 'npm publish to Azure DevOps feed'
   
 
