@@ -23,6 +23,13 @@ steps:
     replaceExistingArchive: true
   displayName: 'Archive files'
   
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'  # Path to the artifact to publish
+    artifactName: 'my-node-app'  # Name for the published artifact
+    publishLocation: 'Container'  # Publish to Azure Pipelines
+  displayName: 'Publish Artifact'  
+  
 
 # - task: npmAuthenticate@0
 #   inputs:
